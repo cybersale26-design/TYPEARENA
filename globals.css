@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: #0a0a0f;
+  color: #eef2ff;
+}
+
+body {
+  background-image: radial-gradient(circle at 20% 0%, rgba(123, 44, 255, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(0, 240, 255, 0.08), transparent 45%),
+    linear-gradient(160deg, #0f1220 0%, #141a30 100%);
+  min-height: 100vh;
+}
+
+.glass-panel {
+  background: rgba(20, 22, 40, 0.55);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25), inset 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+.scanline-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.scanline-overlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 240, 255, 0.06),
+    transparent
+  );
+  animation: scan 4.5s linear infinite;
+}
+
+.grid-bg {
+  background-image: linear-gradient(rgba(0, 240, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+::selection {
+  background: rgba(0, 240, 255, 0.35);
+}
+
+.text-stroke-glow {
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.65), 0 0 40px rgba(0, 240, 255, 0.25);
+}
